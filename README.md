@@ -21,7 +21,7 @@ ClassNotFoundException
 </pre>
 
 <pre>
-MongoSocketOpenException
+网络异常 MongoSocketOpenException
 
 2017-08-18 09:15:52,125 [cluster-ClusterId{value='59955ec81907696b245c34d8', description='null'}-127.0.0.1:27100] [org.mongodb.driver.cluster] [INFO] - Exception in monitor thread while connecting to server 127.0.0.1:27100
 com.mongodb.MongoSocketOpenException: Exception opening socket
@@ -48,7 +48,7 @@ Caused by: java.net.NoRouteToHostException: No route to host: connect
 </pre>
 
 <pre>
-CommunicationsException
+网络异常（mysql地址问题/my.ini等待连接时间默认为8小时，可以修改，linux下最大为365天） CommunicationsException
 
 2017-08-17 17:03:38,301 [main] [com.alibaba.druid.pool.DruidDataSource] [ERROR] - init datasource error, url: jdbc:mysql://127.0.0.1:3306/material?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
 com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
@@ -475,7 +475,7 @@ Caused by: java.io.EOFException: Can not read response from server. Expected to 
 </pre>
 
 <pre>
-事务
+事务锁超时，事务回滚
 
 ### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLTransactionRollbackException: Lock wait timeout exceeded; try restarting transaction
 ; SQL []; Lock wait timeout exceeded; try restarting transaction; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLTransactionRollbackException: Lock wait timeout exceeded; try restarting transaction
@@ -563,6 +563,7 @@ org.springframework.dao.CannotAcquireLockException:
 </pre>
 
 <pre>
+WebService 服务端url错误
 2017-05-18 23:57:39.047 [org.springframework.kafka.KafkaListenerEndpointContainer#0-2-L-2] ERROR com.karakal.sync.mq.KafkaConsumer -kafka -- 处理消息异常, msgId:4d3f3fd4-f1f0-f7e5-879c-74c1b6610cb7, topic: media-asset-mzk, tags:catalog_add, body:{"application":"mzk-autocatalog","body":{"id":"6005970RPGB"},"initTime":1495123059008}, retry:null
 com.sun.xml.internal.ws.client.ClientTransportException: The server sent HTTP status code 404: Not Found
 	at com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.checkStatusCode(HttpTransportPipe.java:310)
