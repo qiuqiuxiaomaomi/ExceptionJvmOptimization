@@ -10,10 +10,20 @@ OutOfMemoryError
 
 <pre>
 StackOverFlowError
+
+      StackOverFlowError代表的是当栈深度超过虚拟机分配给线程的栈大小时就会出现此Error.
+
+      当Stack满了就抛出error了。 所以才发生了上面的java.lang.StackOverflowError 溢出
+      错误。
+
+      注意：是递归的错误，才出现Stack满的情况，而无限循环一般不会占用更多的内存或者具体
+      的Stack，只是占cpu而已，所以不会抛此错误。
 </pre>
 
 <pre>
 EOFException
+
+      当输入过程中意外到达文件或流的末尾时，抛出此异常。
 </pre>
 
 <pre>
